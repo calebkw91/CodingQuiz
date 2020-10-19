@@ -11,6 +11,8 @@ let btn4 = document.createElement("button");
 let questionNum = 0;
 let score = 0;
 let totalQuestions = 0;
+let quizTime;
+let quizTimeRemaining = 0;
 
 let quiz = 
 [{
@@ -32,13 +34,27 @@ let quiz =
 
 function startQuiz()
 {
+    quizTimeRemaining = 60;
     quizTimer();
     updateQuizUI();
+
+    timeSpan.textContent = "Time: " + quizTimeRemaining;
 }
 
 function quizTimer()
 {
+    quizTime = setInterval(function()
+    {
+        quizTimeRemaining--;
 
+        if (quizTimeRemaining === 0)
+        {
+            checkGameEnd();
+        }
+
+        timeSpan.textContent = "Time: " + quizTimeRemaining;
+
+    }, 1000);
 }
 
 function updateQuizUI()
@@ -132,8 +148,9 @@ function incorrectAnswer()
 
 function checkGameEnd()
 {
-    if (totalQuestions === quiz.length)
+    if (totalQuestions === quiz.length || quizTimeRemaining === 0)
     {
+        clearInterval(quizTime);
         quizQuestion.textContent = "The quiz has ended.";
         answerEl.textContent = "Your total score is " + score + ".";
         scoreSpan.textContent = "Score: " + score;
