@@ -10,6 +10,7 @@ let btn4 = document.createElement("button");
 
 let questionNum = 0;
 let score = 0;
+let totalQuestions = 0;
 
 let quiz = 
 [{
@@ -64,9 +65,6 @@ function updateQuizUI()
     answerEl.appendChild(btn3);
     answerEl.appendChild(br3);
     answerEl.appendChild(btn4);
-
-    console.log(score);
-    console.log(questionNum);
 }
 
 function checkAnswer1() 
@@ -121,13 +119,29 @@ function correctAnswer()
 {
     score++;
     questionNum++;
-    updateQuizUI();
+    totalQuestions++;
+    checkGameEnd();
 }
 
 function incorrectAnswer()
 {
     questionNum++;
-    updateQuizUI();
+    totalQuestions++;
+    checkGameEnd();
+}
+
+function checkGameEnd()
+{
+    if (totalQuestions === quiz.length)
+    {
+        quizQuestion.textContent = "The quiz has ended.";
+        answerEl.textContent = "Your total score is " + score + ".";
+        scoreSpan.textContent = "Score: " + score;
+    }
+    else
+    {
+        updateQuizUI();
+    }
 }
 
 startBtn.addEventListener("click", startQuiz);
