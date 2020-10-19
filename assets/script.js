@@ -142,6 +142,7 @@ function correctAnswer()
 function incorrectAnswer()
 {
     questionNum++;
+    quizTimeRemaining = quizTimeRemaining - 5;
     totalQuestions++;
     checkGameEnd();
 }
