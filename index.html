@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
     <title>Coding Quiz</title>
 </head>
 <body>
     <header>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <span id="score">Score</span>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <span id="time-remaining">Time</span>
+                </div>
+            </div>
+        </div>
     </header>
 
+    <br>
+
     <main>
-        <div class="quiz-question">
-            <h2>This is the question.</h2>
-        </div>
-        <div class="quiz-answers">
-            <button>This is an answer.</button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div id="quiz-question">
+                    <h2>This is the question.</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div id="quiz-answers">
+                    <button>This is an answer.</button>
+                </div>
+            </div>
         </div>
     </main>
     
