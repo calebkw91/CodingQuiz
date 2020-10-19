@@ -8,6 +8,9 @@ let btn2 = document.createElement("button");
 let btn3 = document.createElement("button");
 let btn4 = document.createElement("button");
 
+let questionNum = 0;
+let score = 0;
+
 let quiz = 
 [{
     question: "This is question 1?",
@@ -28,7 +31,8 @@ let quiz =
 
 function startQuiz()
 {
-    updateQuizQuestion(0);
+    quizTimer();
+    updateQuizUI();
 }
 
 function quizTimer()
@@ -36,17 +40,18 @@ function quizTimer()
 
 }
 
-function updateQuizQuestion(index)
+function updateQuizUI()
 {
     quizQuestion.textContent = "";
     answerEl.textContent = "";
+    scoreSpan.textContent = "Score: " + score;
 
-    quizQuestion.textContent = quiz[index].question;
+    quizQuestion.textContent = quiz[questionNum].question;
 
-    btn1.textContent = quiz[index].answer1;
-    btn2.textContent = quiz[index].answer2;
-    btn3.textContent = quiz[index].answer3;
-    btn4.textContent = quiz[index].answer4;
+    btn1.textContent = quiz[questionNum].answer1;
+    btn2.textContent = quiz[questionNum].answer2;
+    btn3.textContent = quiz[questionNum].answer3;
+    btn4.textContent = quiz[questionNum].answer4;
 
     let br1 = document.createElement("br");
     let br2 = document.createElement("br");
@@ -59,30 +64,74 @@ function updateQuizQuestion(index)
     answerEl.appendChild(btn3);
     answerEl.appendChild(br3);
     answerEl.appendChild(btn4);
+
+    console.log(score);
+    console.log(questionNum);
 }
 
 function checkAnswer1() 
 {
-
+    if (quiz[questionNum].correctAnswer === "1")
+    {
+        correctAnswer();
+    }
+    else
+    {
+        incorrectAnswer();
+    }
 }
 
 function checkAnswer2() 
 {
-
+    if (quiz[questionNum].correctAnswer === "2")
+    {
+        correctAnswer();
+    }
+    else
+    {
+        incorrectAnswer();
+    }
 }
 
 function checkAnswer3() 
 {
-
+    if (quiz[questionNum].correctAnswer === "3")
+    {
+        correctAnswer();
+    }
+    else
+    {
+        incorrectAnswer();
+    }
 }
 
 function checkAnswer4() 
 {
+    if (quiz[questionNum].correctAnswer === "4")
+    {
+        correctAnswer();
+    }
+    else
+    {
+        incorrectAnswer();
+    }
+}
 
+function correctAnswer()
+{
+    score++;
+    questionNum++;
+    updateQuizUI();
+}
+
+function incorrectAnswer()
+{
+    questionNum++;
+    updateQuizUI();
 }
 
 startBtn.addEventListener("click", startQuiz);
 btn1.addEventListener("click", checkAnswer1);
-btn1.addEventListener("click", checkAnswer2);
-btn1.addEventListener("click", checkAnswer3);
-btn1.addEventListener("click", checkAnswer4);
+btn2.addEventListener("click", checkAnswer2);
+btn3.addEventListener("click", checkAnswer3);
+btn4.addEventListener("click", checkAnswer4);
