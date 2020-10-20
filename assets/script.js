@@ -3,16 +3,50 @@ let timeSpan = document.querySelector("#time-remaining");
 let quizQuestion = document.querySelector("#quiz-question");
 let answerEl = document.querySelector("#quiz-answers");
 let startBtn = document.querySelector("#start-quiz");
+let endGameForm = document.querySelector("#end-game-form");
+let formEl = document.querySelector("#formEl");
+
 let btn1 = document.createElement("button");
 let btn2 = document.createElement("button");
 let btn3 = document.createElement("button");
 let btn4 = document.createElement("button");
+
+let submit = document.createElement("button");
+submit.setAttribute("id", "submit");
+submit.setAttribute("type", "submit");
+
+let playerName = document.createElement("input");
+playerName.setAttribute("type", "text");
+playerName.setAttribute("placeholder", "Name");
+
 
 let questionNum = 0;
 let score = 0;
 let totalQuestions = 0;
 let quizTime;
 let quizTimeRemaining = 0;
+
+let highScores = 
+[{
+    score: 0,
+    name: ""
+},
+{
+    score: 0,
+    name: ""
+},
+{
+    score: 0,
+    name: ""
+},
+{
+    score: 0,
+    name: ""
+},
+{
+    score: 0,
+    name: ""
+}]
 
 let quiz = 
 [{
@@ -21,7 +55,7 @@ let quiz =
     answer2: "This is answer 2.",
     answer3: "This is answer 3.",
     answer4: "This is answer 4.",
-    correctAnswer: "2",
+    correctAnswer: "2"
 },
 {
     question: "This is question 2?",
@@ -29,7 +63,7 @@ let quiz =
     answer2: "This is answer 2.",
     answer3: "This is answer 3.",
     answer4: "This is answer 4.",
-    correctAnswer: "3",
+    correctAnswer: "3"
 }]
 
 function startQuiz()
@@ -155,12 +189,57 @@ function checkGameEnd()
         quizQuestion.textContent = "The quiz has ended.";
         answerEl.textContent = "Your total score is " + score + ".";
         scoreSpan.textContent = "Score: " + score;
+        submit.textContent = "Submit";
+
+        let br = document.createElement("br");
+
+        endGameForm.appendChild(playerName);
+        endGameForm.appendChild(br);
+        endGameForm.appendChild(submit);
     }
     else
     {
         updateQuizUI();
     }
 }
+
+formEl.addEventListener("submit", function(event) 
+{
+    //event.preventDefault();
+
+    console.log(playerName.value);
+
+    if(localStorage.getItem("highScores") === null)
+    {
+        for (let i=0; i<highScores.length; i++)
+        {
+            if (score > highScores[i].score)
+            {
+                highScores[i].score = score;
+                highScores[i].name = playerName.value;
+
+                i = highScores.length;
+            }
+        }
+    }
+    else
+    {
+        highScores = JSON.parse(localStorage.getItem("highScores"));
+
+        for (let i=0; i<highScores.length; i++)
+        {
+            if (score > highScores[i].score)
+            {
+                highScores[i].score = score;
+                highScores[i].name = playerName.value;
+
+                i = highScores.length;
+            }
+        }
+    }
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+})
 
 startBtn.addEventListener("click", startQuiz);
 btn1.addEventListener("click", checkAnswer1);

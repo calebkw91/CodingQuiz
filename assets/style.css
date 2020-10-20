@@ -25,14 +25,25 @@ main
     max-width: 600px;
 }
 
-#question-div
-{
-    align-content: center;
-}
-
 button
 {
     border-radius: 8px;
     min-width: 400px;
     margin: 10px;
+}
+
+#submit
+{
+    min-width: 100px;
+}
+
+#form 
+{
+    position: relative;
+    top: 150px;
+}
+
+input
+{
+    width: 300px;
 }
