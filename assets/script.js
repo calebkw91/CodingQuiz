@@ -89,7 +89,7 @@ let quiz =
 
 function startQuiz()
 {
-    quizTimeRemaining = 60;
+    quizTimeRemaining = 30;
     quizTimer();
     updateQuizUI();
 
@@ -216,8 +216,6 @@ function checkGameEnd()
 
         highScoreIndex = displayHighScoreForm();
 
-        console.log(highScoreIndex);
-
         if (highScoreIndex < 5)
         {
             endGameForm.appendChild(playerName);
@@ -257,10 +255,14 @@ function displayHighScoreForm() {
 
 formEl.addEventListener("submit", function(event) 
 {
+    event.preventDefault();
+
     highScores[highScoreIndex].score = score;
     highScores[highScoreIndex].name = playerName.value;
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
+
+    window.location.href = "high-scores.html";
 })
 
 startBtn.addEventListener("click", startQuiz);
