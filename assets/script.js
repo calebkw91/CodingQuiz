@@ -30,23 +30,23 @@ let highScoreIndex;
 let highScores = 
 [{
     score: 0,
-    name: ""
+    name: "Player 1"
 },
 {
     score: 0,
-    name: ""
+    name: "Player 2"
 },
 {
     score: 0,
-    name: ""
+    name: "Player 3"
 },
 {
     score: 0,
-    name: ""
+    name: "Player 4"
 },
 {
     score: 0,
-    name: ""
+    name: "Player 5"
 }]
 
 let quiz = 
