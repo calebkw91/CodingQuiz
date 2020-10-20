@@ -51,20 +51,40 @@ let highScores =
 
 let quiz = 
 [{
-    question: "This is question 1?",
-    answer1: "This is answer 1.",
-    answer2: "This is answer 2.",
-    answer3: "This is answer 3.",
-    answer4: "This is answer 4.",
-    correctAnswer: "2"
-},
-{
-    question: "This is question 2?",
-    answer1: "This is answer 1.",
-    answer2: "This is answer 2.",
-    answer3: "This is answer 3.",
-    answer4: "This is answer 4.",
+    question: "Commonly used data types do not include:",
+    answer1: "Strings",
+    answer2: "Booleans",
+    answer3: "Alerts",
+    answer4: "Numbers",
     correctAnswer: "3"
+},{
+    question: "The condition in an if/else statement is enclosed within:",
+    answer1: "Quotes",
+    answer2: "Curly brackets",
+    answer3: "Parantheses",
+    answer4: "Square brackets",
+    correctAnswer: "3"
+},{
+    question: "Arrays in JavaScript can be used to store:",
+    answer1: "Numbers and strings",
+    answer2: "Other arrays",
+    answer3: "Booleans",
+    answer4: "All of the above",
+    correctAnswer: "4"
+},{
+    question: "String values must be enclosed within ____ when being assigned to variables.",
+    answer1: "Commas",
+    answer2: "Curly brackets",
+    answer3: "Quotes",
+    answer4: "Parantheses",
+    correctAnswer: "3"
+},{
+    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    answer1: "Javascript",
+    answer2: "Terminal/bash",
+    answer3: "For loops",
+    answer4: "console.log()",
+    correctAnswer: "4"
 }]
 
 function startQuiz()
