@@ -25,6 +25,7 @@ let score = 0;
 let totalQuestions = 0;
 let quizTime;
 let quizTimeRemaining = 0;
+let highScoreIndex;
 
 let highScores = 
 [{
@@ -193,9 +194,16 @@ function checkGameEnd()
 
         let br = document.createElement("br");
 
-        endGameForm.appendChild(playerName);
-        endGameForm.appendChild(br);
-        endGameForm.appendChild(submit);
+        highScoreIndex = displayHighScoreForm();
+
+        console.log(highScoreIndex);
+
+        if (highScoreIndex < 5)
+        {
+            endGameForm.appendChild(playerName);
+            endGameForm.appendChild(br);
+            endGameForm.appendChild(submit);
+        }
     }
     else
     {
@@ -203,24 +211,13 @@ function checkGameEnd()
     }
 }
 
-formEl.addEventListener("submit", function(event) 
-{
-    //event.preventDefault();
+function displayHighScoreForm() {
 
-    console.log(playerName.value);
+    let index = 5;
 
     if(localStorage.getItem("highScores") === null)
     {
-        for (let i=0; i<highScores.length; i++)
-        {
-            if (score > highScores[i].score)
-            {
-                highScores[i].score = score;
-                highScores[i].name = playerName.value;
-
-                i = highScores.length;
-            }
-        }
+        index = 0;
     }
     else
     {
@@ -230,13 +227,18 @@ formEl.addEventListener("submit", function(event)
         {
             if (score > highScores[i].score)
             {
-                highScores[i].score = score;
-                highScores[i].name = playerName.value;
-
-                i = highScores.length;
+                index = i;
             }
         }
     }
+
+    return index;
+}
+
+formEl.addEventListener("submit", function(event) 
+{
+    highScores[highScoreIndex].score = score;
+    highScores[highScoreIndex].name = playerName.value;
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
 })
