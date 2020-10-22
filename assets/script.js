@@ -236,7 +236,7 @@ function displayHighScoreForm() {
 
     if(localStorage.getItem("highScores") === null)
     {
-        index = 0;
+        index = 4;
     }
     else
     {
@@ -258,8 +258,22 @@ formEl.addEventListener("submit", function(event)
 {
     event.preventDefault();
 
-    highScores[highScoreIndex].score = score;
-    highScores[highScoreIndex].name = playerName.value;
+    for (let i=0; i<=highScoreIndex; i++)
+    {
+        if (i < highScoreIndex)
+        {
+            highScores[i].score = highScores[i + 1].score;
+            highScores[i].name = highScores[i + 1].name;
+        }
+
+        else if (i === highScoreIndex)
+        {
+            highScores[i].score = score;
+            highScores[i].name = playerName.value;
+        }
+
+        console.log(JSON.stringify(highScores));
+    }
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
 
