@@ -188,7 +188,7 @@ function checkAnswer4()
 
 function correctAnswer()
 {
-    score++;
+    score = score + 5;
     questionNum++;
     totalQuestions++;
     checkGameEnd();
@@ -206,6 +206,7 @@ function checkGameEnd()
 {
     if (totalQuestions === quiz.length || quizTimeRemaining === 0)
     {
+        score = score + quizTimeRemaining;
         clearInterval(quizTime);
         quizQuestion.textContent = "The quiz has ended.";
         answerEl.textContent = "Your total score is " + score + ".";
