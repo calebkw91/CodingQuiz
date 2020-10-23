@@ -12,10 +12,10 @@ Your final score is determined by how many questions you answer correctly, and h
 
 ## Screenshot
 
-<!-- ![Image](assets/images/homepage_screenshot.png "website title") -->
+![Image](assets/images/home_screenshot.png "Homepage Screenshot")
 
 ## How to use
 
 To use, go to the web address listed below.
 
-<!-- [Link](https://calebkw91.github.io/HoriseonCodeRefractor/) -->
+[Link](https://calebkw91.github.io/CodingQuiz/)
