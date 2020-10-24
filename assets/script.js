@@ -103,7 +103,7 @@ let quiz =
 
 function startQuiz()
 {
-    quizTimeRemaining = 30;
+    quizTimeRemaining = 60;
     quizTimer();
     updateQuizUI();
 
