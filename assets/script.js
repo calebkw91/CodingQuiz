@@ -65,6 +65,13 @@ let quiz =
     answer4: "Square brackets",
     correctAnswer: "3"
 },{
+    question: "What is Michael Scotts greatest fear?",
+    answer1: "Women",
+    answer2: "Snakes",
+    answer3: "Has no fears",
+    answer4: "Both 2 and 3",
+    correctAnswer: "4"
+},{
     question: "Arrays in JavaScript can be used to store:",
     answer1: "Numbers and strings",
     answer2: "Other arrays",
@@ -77,6 +84,13 @@ let quiz =
     answer2: "Curly brackets",
     answer3: "Quotes",
     answer4: "Parantheses",
+    correctAnswer: "3"
+},{
+    question: "What kind of bear is best?",
+    answer1: "Grizzly bear",
+    answer2: "Polar bear",
+    answer3: "Black bear",
+    answer4: "Brown bear",
     correctAnswer: "3"
 },{
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
